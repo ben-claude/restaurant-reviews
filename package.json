@@ -1,0 +1,34 @@
+{
+  "name": "restaurant-reviews",
+  "version": "1.0.0",
+  "description": "--- #### _Three Stage Course Material Project - Restaurant Reviews_",
+  "main": "js/index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack",
+    "serve": "webpack-dev-server --port 8000",
+    "test": "mocha-webpack test/**/*.js",
+    "serve-test": "mocha-webpack --watch test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "copy-webpack-plugin": "^4.3.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.16.0",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "mocha": "^5.0.0",
+    "mocha-webpack": "^1.0.1",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.20.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}

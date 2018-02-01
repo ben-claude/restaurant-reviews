@@ -1,0 +1,142 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* ====================== Map ====================== */
+
+#map {
+  /*height: 400px;*/
+  min-height: 50vh;
+  background-color: #ccc;
+}
+
+/* ====================== Restaurant Filtering ====================== */
+
+.filter-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+  .filter-view {
+    flex-direction: column;
+  }
+}
+
+.filter-options {
+  /*
+  width: 100%;
+  height: 50px;
+  */
+  background-color: #3397DB;
+  align-items: center;
+}
+
+.filter-options h2 {
+  color: white;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1;
+  margin: 1em;
+  padding: 0.5em;
+  /*margin: 0 20px;*/
+}
+
+.filter-options select {
+  background-color: white;
+  border: 1px solid #fff;
+  font-family: Arial,sans-serif;
+  font-size: var(--fontSize1);
+  margin: 1em;
+  padding: 0.5em;
+  /*
+  height: 35px;
+  letter-spacing: 0;
+  margin: 10px;
+  padding: 0 10px;
+  width: 200px;
+  */
+}
+
+/* ====================== Restaurant Listing ====================== */
+
+.restaurant-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+#restaurants-list {
+  background-color: #f3f3f3;
+  list-style: outside none none;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  /*padding: 30px 15px 60px;*/
+  text-align: center;
+}
+
+#restaurants-list li {
+  background-color: #fff;
+  border: 2px solid #ccc;
+  font-family: Arial,sans-serif;
+  text-align: left;
+  /*
+  margin: 15px;
+  min-height: 380px;
+  padding: 0 30px 25px;
+  width: 270px;
+  */
+}
+
+#restaurants-list .restaurant-img {
+  background-color: #ccc;
+  /*display: block;*/
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+  /*
+  min-height: 248px;
+  min-width: 100%;
+  */
+}
+
+#restaurants-list li h1 {
+  color: #f18200;
+  font-family: Arial,sans-serif;
+  font-size: var(--fontSize3);
+  font-weight: 200;
+  letter-spacing: 0;
+  line-height: 1.3;
+  /*margin: 20px 0 10px;*/
+  text-transform: uppercase;
+}
+
+#restaurants-list p {
+  margin: 0;
+  font-size: var(--fontSize1);
+  padding: 1em;
+}
+
+#restaurants-list li a {
+  background-color: orange;
+  border-bottom: 3px solid #eee;
+  color: #fff;
+  /*display: inline-block;*/
+  font-size: var(--fontSize1);
+  padding: 1em;
+  /*
+  margin: 15px 0 0;
+  padding: 8px 30px 10px;
+  */
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
