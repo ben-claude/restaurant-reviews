@@ -64,12 +64,17 @@
 
 /* ====================== Restaurant Listing ====================== */
 
-.restaurant-view {
+.restaurants-view {
   display: flex;
   flex-direction: column;
+}
+
+.restaurants-list-view {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 1em;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 
 #restaurants-list {
@@ -93,6 +98,20 @@
   padding: 0 30px 25px;
   width: 270px;
   */
+}
+
+@media screen and (min-width: 1200px) {
+  #restaurants-list li {
+    width: 30%; /* 3 items per row */
+  }
+}
+
+.restaurant-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
 }
 
 #restaurants-list .restaurant-img {
@@ -122,6 +141,7 @@
   margin: 0;
   font-size: var(--fontSize1);
   padding: 1em;
+  text-align: center;
 }
 
 #restaurants-list li a {

@@ -3,9 +3,21 @@ import { config } from './common';
 const cacheVersion = 1;
 const cacheNamePrefix = 'restaurant-reviews-v';
 const restoCacheName = `${cacheNamePrefix}${cacheVersion}`;
-var allCaches = [
+const allCaches = [
   restoCacheName,
 ];
+const assetsPathname = [
+  '/index.html',
+  '/index-bundle.js',
+  '/index-style.css',
+  '/restaurant.html',
+  '/restaurant-bundle.js',
+  '/restaurant-style.css',
+  '/data/restaurants.json',
+];
+for (let i = 0; i < config.nbImages; ++i) {
+  assetsPathname.push(`/img/${i + 1}.jpg`);
+}
 
 self.addEventListener('install', event => {
   console.log('sw install event');
@@ -13,18 +25,6 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(restoCacheName)
       .then(cache => {
-        const assetsPathname = [
-          '/index.html',
-          '/index-bundle.js',
-          '/index-style.css',
-          '/restaurant.html',
-          '/restaurant-bundle.js',
-          '/restaurant-style.css',
-          '/data/restaurants.json',
-        ];
-        for (let i = 0; i < config.nbImages; ++i) {
-          assetsPathname.push(`/img/${i + 1}.jpg`);
-        }
         const assetsUrl = assetsPathname.map(pathname => `${config.urlOrigin}${pathname}`);
         return cache.addAll(assetsUrl);
       })
@@ -55,17 +55,14 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   const requestUrl = new URL(event.request.url);
   if (requestUrl.origin === location.origin) {
-    if (requestUrl.pathname === '/'
-      || requestUrl.pathname === '/restaurant.html'
-      || requestUrl.pathname.startsWith('/data')
-      || requestUrl.pathname.startsWith('/img')) {
+    const pathname = requestUrl.pathname === '/' ? '/index.html' : requestUrl.pathname;
+    if (assetsPathname.indexOf(pathname) >= 0) {
       //console.log(`sw fetch event request ${requestUrl.pathname}`);
-      const pathname = requestUrl.pathname === '/' ? '/index.html' : requestUrl.pathname;
       event.respondWith(
         caches.open(restoCacheName).then(cache => {
           return cache.match(pathname).then(response => {
             // always fetch from network to update the cache
-            const fetchResponse = fetch(event.request)
+            const fetchResponse = fetch(pathname)
               .then(networkResponse => {
                 cache.put(pathname, networkResponse.clone());
                 return networkResponse;
@@ -83,6 +80,7 @@ self.addEventListener('fetch', event => {
       );
       return;
     }
+    //console.log(`sw fetch same origin ${pathname} not found in assetsPathname`);
   }
   //
   event.respondWith(
