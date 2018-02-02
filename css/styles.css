@@ -2,10 +2,10 @@
 /* CSS Document */
 
 :root {
-  --fontSize1: 1em;
-  --fontSize2: 0.75em;
-  --fontSize3: 1.25em;
-  --fontSize4: 2em;
+  --fontSize1: 2.5vmin;
+  --fontSize2: 2vmin;
+  --fontSize3: 3vmin;
+  --fontSize4: 4vmin;
 }
 
 body, td, th, p {
