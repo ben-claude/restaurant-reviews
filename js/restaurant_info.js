@@ -73,7 +73,7 @@ const createReviewHTML = (review) => {
  */
 const fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h2');
+  const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -147,8 +147,13 @@ const fetchRestaurantFromURL = (callback) => {
 const fillBreadcrumb = (restaurant=self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
-  li.innerHTML = restaurant.name;
-  li.setAttribute('aria-current', 'page');
+
+  const a = document.createElement('a');
+  a.href = DBHelper.urlForRestaurant(restaurant);
+  a.setAttribute('aria-current', 'page');
+  a.innerHTML = restaurant.name;
+  li.appendChild(a);
+
   breadcrumb.appendChild(li);
 };
 

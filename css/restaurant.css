@@ -36,9 +36,9 @@
 .restaurant-view {
   display: flex;
   flex-direction: column;
-  width: 100%;
   justify-content: center;
   align-items: center;
+  padding: 1vw;
 }
 
 .inside header {
@@ -78,7 +78,7 @@
 #restaurant-name {
   color: #f18200;
   font-family: Arial,sans-serif;
-  font-size: var(--fontSize4);
+  font-size: var(--fontSize3);
   font-weight: 200;
   letter-spacing: 0;
   /*margin: 15px 0 30px;*/
@@ -91,14 +91,14 @@
 }
 
 #restaurant-address {
-  font-size: var(--fontSize3);
+  font-size: var(--fontSize2);
   /*margin: 10px 0px;*/
 }
 
 #restaurant-cuisine {
   background-color: #333;
   color: #ddd;
-  font-size: var(--fontSize3);
+  font-size: var(--fontSize2);
   font-weight: 300;
   /*
   letter-spacing: 10px;
@@ -141,7 +141,7 @@
 
 #reviews-container h2 {
   color: #f58500;
-  font-size: var(--fontSize4);
+  font-size: var(--fontSize3);
   font-weight: 300;
   /*
   letter-spacing: -1px;
@@ -185,4 +185,43 @@
   color: #666;
 }
 
+/* ====================== Navigation ====================== */
+
+#breadcrumb {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 1em; /*10px 40px 16px;*/
+  list-style: none;
+  background-color: #eee;
+  font-size: var(--fontSize1);
+  margin: 0;
+  /*width: calc(50% - 80px);*/
+}
+
+/* Display list items side by side */
+/*
+#breadcrumb li {
+  display: inline;
+}
+*/
+
+/* Add a slash symbol (/) before/behind each list item */
+#breadcrumb li+li:before {
+  padding: 1vw; /*8px;*/
+  color: black;
+  content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+#breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+#breadcrumb li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
 

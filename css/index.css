@@ -38,12 +38,14 @@
 
 .filter-options h2 {
   color: white;
-  font-size: 1rem;
+  font-size: var(--fontSize3);
   font-weight: normal;
   line-height: 1;
+  /*
   margin: 1em;
   padding: 0.5em;
-  /*margin: 0 20px;*/
+  margin: 0 20px;
+  */
 }
 
 .filter-options select {
@@ -60,6 +62,13 @@
   padding: 0 10px;
   width: 200px;
   */
+}
+
+@media screen and (max-width: 500px) {
+  .filter-options select {
+    flex-direction: column;
+    width: 80%;
+  }
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -102,7 +111,8 @@
 
 @media screen and (min-width: 1200px) {
   #restaurants-list li {
-    width: 30%; /* 3 items per row */
+    width: 30%;
+    max-width: 400px;
   }
 }
 
@@ -129,7 +139,7 @@
 #restaurants-list li h1 {
   color: #f18200;
   font-family: Arial,sans-serif;
-  font-size: var(--fontSize3);
+  font-size: var(--fontSize2);
   font-weight: 200;
   letter-spacing: 0;
   line-height: 1.3;

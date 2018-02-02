@@ -2,10 +2,9 @@
 /* CSS Document */
 
 :root {
-  --fontSize1: 2.5vmin;
-  --fontSize2: 2vmin;
-  --fontSize3: 3vmin;
-  --fontSize4: 4vmin;
+  --fontSize1: 2vmin;
+  --fontSize2: 3vmin;
+  --fontSize3: 4vmin;
 }
 
 body, td, th, p {
@@ -60,7 +59,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 #footer {
   background-color: #444;
   color: #aaa;
-  font-size: var(--fontSize2);
+  font-size: var(--fontSize1);
   /*letter-spacing: 1px;*/
   padding: 2em;
   text-align: center;
@@ -86,38 +85,5 @@ nav h1 a {
   font-weight: 200;
   /*letter-spacing: 10px;*/
   text-transform: uppercase;
-}
-
-#breadcrumb {
-    padding: 1em; /*10px 40px 16px;*/
-    list-style: none;
-    background-color: #eee;
-    font-size: var(--fontSize1);
-    margin: 0;
-    /*width: calc(50% - 80px);*/
-}
-
-/* Display list items side by side */
-#breadcrumb li {
-    display: inline;
-}
-
-/* Add a slash symbol (/) before/behind each list item */
-#breadcrumb li+li:before {
-    padding: 0.5em; /*8px;*/
-    color: black;
-    content: "/\00a0";
-}
-
-/* Add a color to all links inside the list */
-#breadcrumb li a {
-    color: #0275d8;
-    text-decoration: none;
-}
-
-/* Add a color on mouse-over */
-#breadcrumb li a:hover {
-    color: #01447e;
-    text-decoration: underline;
 }
 
